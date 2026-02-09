@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especial Cell | Servicio Técnico Especializado en Celulares</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066FF; /* Azul tecnológico vibrante */
+            --secondary: #00D4AA; /* Verde cian moderno */
+            --accent: #FF6B35; /* Naranja energía */
+            --dark: #0A2540; /* Azul oscuro premium */
+            --light: #F8F9FF; /* Blanco azulado */
+            --white: #FFFFFF;
+            --gradient: linear-gradient(135deg, #0066FF 0%, #00D4AA 100%);
+            --shadow: 0 20px 60px rgba(0, 102, 255, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+            color: #333;
+            min-height: 100vh;
+            padding: 30px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        /* CONTENEDOR PRINCIPAL */
+        .card-container {
+            width: 100%;
+            max-width: 1200px;
+            background: var(--white);
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* HEADER CON MENÚ */
+        .card-header {
+            background: linear-gradient(135deg, var(--dark) 0%, #1a365d 100%);
+            color: white;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .brand-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .logo-circle {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+        }
+        
+        .logo-circle i {
+            font-size: 2.5rem;
+            color: white;
+        }
+        
+        .brand-text h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 5px;
+            background: var(--gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .brand-text .slogan {
+            font-size: 1.2rem;
+            color: var(--secondary);
+            font-weight: 600;
+            letter-spacing: 1.5px;
+        }
+        
+        /* MENÚ NAVEGACIÓN */
+        .main-nav {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 10px 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            color: var(--secondary);
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        /* CONTENIDO PRINCIPAL */
+        .card-main {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            min-height: 600px;
+        }
+        
+        /* SECCIÓN IZQUIERDA - SERVICIOS */
+        .services-section {
+            padding: 50px 40px;
+            background: var(--light);
+        }
+        
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.2rem;
+            color: var(--dark);
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 5px;
+            background: var(--gradient);
+            border-radius: 3px;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 102, 255, 0.15);
+            border-color: var(--primary);
+        }
+        
+        .service-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1) 0%, rgba(0, 212, 170, 0.1) 100%);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .service-icon i {
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+        
+        .service-card h3 {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        .service-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* CONTACTO RÁPIDO */
+        .quick-contact {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .contact-icon i {
+            font-size: 1.5rem;
+            color: white;
+        }
+        
+        .contact-text strong {
+            display: block;
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        
+        .contact-text span {
+            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        /* SECCIÓN DERECHA - MISIÓN, VISIÓN, VALORES */
+        .info-section {
+            padding: 50px 40px;
+            background: linear-gradient(135deg, var(--dark) 0%, #1a365d 100%);
+            color: white;
+        }
+        
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 35px;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateX(10px);
+            border-color: var(--secondary);
+        }
+        
+        .info-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .info-title i {
+            font-size: 1.5rem;
+        }
+        
+        .info-content {
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .values-list {
+            list-style: none;
+        }
+        
+        .values-list li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .values-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .value-icon {
+            color: var(--secondary);
+            font-size: 1.2rem;
+        }
+        
+        /* BOTONES DE ACCIÓN */
+        .action-buttons {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+        
+        .btn {
+            flex: 1;
+            padding: 18px 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            transition: all 0.3s ease;
+            text-align: center;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+        }
+        
+        .btn-call {
+            background: linear-gradient(135deg, var(--primary) 0%, #0052CC 100%);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* FOOTER COMPLETO */
+        .card-footer {
+            background: #0A1A32;
+            color: white;
+            padding: 40px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            color: var(--secondary);
+        }
+        
+        .footer-section p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.95rem;
+        }
+        
+        .copyright a {
+            color: var(--secondary);
+            text-decoration: none;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .card-main {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .brand-text h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .card-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .main-nav {
+                justify-content: center;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .brand-section {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .services-section,
+            .info-section {
+                padding: 30px 20px;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        /* ANIMACIONES */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .service-card, .info-card, .quick-contact {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .service-card:nth-child(2) { animation-delay: 0.1s; }
+        .service-card:nth-child(3) { animation-delay: 0.2s; }
+        .service-card:nth-child(4) { animation-delay: 0.3s; }
+        .info-card:nth-child(1) { animation-delay: 0.1s; }
+        .info-card:nth-child(2) { animation-delay: 0.2s; }
+        .info-card:nth-child(3) { animation-delay: 0.3s; }
+        
+        /* EFECTO 3D */
+        .card-container {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .service-card:hover, .info-card:hover {
+            transform: translateY(-10px) rotateX(5deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="card-container">
+        <!-- HEADER CON MENÚ -->
+        <header class="card-header">
+            <div class="brand-section">
+                <div class="logo-circle">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>ESPECIAL CELL</h1>
+                    <div class="slogan">SERVICIO TÉCNICO ESPECIALIZADO</div>
+                </div>
+            </div>
+            
+            <nav class="main-nav">
+                <a href="#servicios" class="nav-link">Servicios</a>
+                <a href="#mision" class="nav-link">Misión</a>
+                <a href="#vision" class="nav-link">Visión</a>
+                <a href="#valores" class="nav-link">Valores</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+                <a href="#ubicacion" class="nav-link">Ubicación</a>
+            </nav>
+        </header>
+        
+        <!-- CONTENIDO PRINCIPAL -->
+        <main class="card-main">
+            <!-- SECCIÓN IZQUIERDA: SERVICIOS Y CONTACTO -->
+            <section class="services-section" id="servicios">
+                <h2 class="section-title">Nuestros Servicios Especializados</h2>
+                
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3>Servicio Técnico</h3>
+                        <p>Reparación especializada de todo tipo de celulares. Diagnóstico gratuito y garantía en todos nuestros trabajos.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3>Venta de Celulares</h3>
+                        <p>Equipos nuevos y seminuevos de última generación. Todas las marcas y modelos con garantía oficial.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-headphones"></i>
+                        </div>
+                        <h3>Accesorios Originales</h3>
+                        <p>Cargadores, auriculares, protectores de pantalla, fundas y todo tipo de accesorios para tu dispositivo.</p>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-sim-card"></i>
+                        </div>
+                        <h3>SIM Card y Planes</h3>
+                        <p>Activación de chips, portabilidad numérica y planes de datos para todas las operadoras.</p>
+                    </div>
+                </div>
+                
+                <div class="quick-contact">
+                    <h2 class="section-title">Contacto Rápido</h2>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Celular</strong>
+                            <span>302 219 7276</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Teléfono Fijo</strong>
+                            <span>573 6402</span>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <strong>Ubicación</strong>
+                            <span>Cúcuta, Colombia</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="action-buttons">
+                    <a href="https://wa.me/573022197276" target="_blank" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i> WhatsApp 302 219 7276
+                    </a>
+                    <a href="tel:3022197276" class="btn btn-call">
+                        <i class="fas fa-phone"></i> Llamar Ahora
+                    </a>
+                </div>
+            </section>
+            
+            <!-- SECCIÓN DERECHA: MISIÓN, VISIÓN, VALORES -->
+            <section class="info-section">
+                <div class="info-card" id="mision">
+                    <h2 class="info-title"><i class="fas fa-bullseye"></i> Nuestra Misión</h2>
+                    <p class="info-content">
+                        Ser la empresa líder en servicio técnico especializado de celulares en Cúcuta, brindando soluciones tecnológicas confiables, rápidas y de alta calidad. Nos comprometemos a superar las expectativas de nuestros clientes mediante atención personalizada, precios justos y garantía en todos nuestros servicios.
+                    </p>
+                </div>
+                
+                <div class="info-card" id="vision">
+                    <h2 class="info-title"><i class="fas fa-eye"></i> Nuestra Visión</h2>
+                    <p class="info-content">
+                        Para el 2025, consolidarnos como el referente tecnológico más confiable del Norte de Santander, expandiendo nuestra cobertura con tres nuevas sucursales y desarrollando un centro de innovación para reparación de dispositivos de última generación.
+                    </p>
+                </div>
+                
+                <div class="info-card" id="valores">
+                    <h2 class="info-title"><i class="fas fa-heart"></i> Nuestros Valores</h2>
+                    <ul class="values-list">
+                        <li><i class="fas fa-check-circle value-icon"></i> <strong>Confianza:</strong> Garantía en todos nuestros trabajos</li>
+                        <li><i class="fas fa-check-circle value-icon"></i> <strong>Eficiencia:</strong> Reparaciones rápidas sin sacrificar calidad</li>
+                        <li><i class="fas fa-check-circle value-icon"></i> <strong>Innovación:</strong> Tecnología de vanguardia en cada servicio</li>
+                        <li><i class="fas fa-check-circle value-icon"></i> <strong>Honestidad:</strong> Transparencia en precios y diagnósticos</li>
+                        <li><i class="fas fa-check-circle value-icon"></i> <strong>Compromiso:</strong> Atención personalizada 24/7</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+        
+        <!-- FOOTER COMPLETO -->
+        <footer class="card-footer" id="contacto">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Especial Cell</h3>
+                    <p>
+                        Más de 10 años de experiencia en servicio técnico especializado de celulares. Tu dispositivo en manos de expertos certificados.
+                    </p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/573022197276" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Horario de Atención</h3>
+                    <p><strong>Lunes a Viernes:</strong><br>8:00 AM - 7:00 PM</p>
+                    <p><strong>Sábados:</strong><br>9:00 AM - 5:00 PM</p>
+                    <p><strong>Domingos:</strong><br>10:00 AM - 2:00 PM</p>
+                    <p><em>Servicio de emergencia 24/7 disponible</em></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Ubicación</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Cúcuta, Norte de Santander<br>Colombia</p>
+                    <p><i class="fas fa-phone"></i> 302 219 7276</p>
+                    <p><i class="fas fa-phone-alt"></i> 573 6402</p>
+                    <p><i class="fas fa-envelope"></i> info@especialcell.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 <strong>Especial Cell</strong> - Servicio Técnico Especializado. Todos los derechos reservados.</p>
+                <p>Diseñado con <i class="fas fa-heart" style="color:#FF6B35;"></i> para nuestros clientes | <a href="#">Política de Privacidad</a> | <a href="#">Términos y Condiciones</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Scroll suave para el menú
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if(targetId.startsWith('#')) {
+                        const targetElement = document.querySelector(targetId);
+                        if(targetElement) {
+                            window.scrollTo({
+                                top: targetElement.offsetTop - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                });
+            });
+            
+            // Efecto parallax
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const card = document.querySelector('.card-container');
+                if(card) {
+                    card.style.transform = `translateY(${scrolled * 0.05}px)`;
+                }
+            });
+            
+            // Animación de números para contacto
+            const phoneNumbers = document.querySelectorAll('.contact-text span');
+            phoneNumbers.forEach(number => {
+                number.style.opacity = '0';
+                number.style.transform = 'translateX(-20px)';
+                setTimeout(() => {
+                    number.style.transition = 'all 0.6s ease';
+                    number.style.opacity = '1';
+                    number.style.transform = 'translateX(0)';
+                }, 300);
+            });
+            
+            // Efecto de escritura para el eslogan
+            const slogan = document.querySelector('.slogan');
+            if(slogan) {
+                const text = slogan.textContent;
+                slogan.textContent = '';
+                let i = 0;
+                function typeWriter() {
+                    if (i < text.length) {
+                        slogan.textContent += text.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, 50);
+                    }
+                }
+                setTimeout(typeWriter, 1000);
+            }
+            
+            // Mostrar año actual
+            document.querySelector('.copyright p').innerHTML = 
+                document.querySelector('.copyright p').innerHTML.replace('2024', new Date().getFullYear());
+        });
+    </script>
+</body>
+</html>
